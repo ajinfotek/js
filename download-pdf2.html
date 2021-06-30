@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>pdf</title>
+<body>
+	<button id="cmd">click here</button>
+	<div id="content">
+		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas ipsam nihil harum quidem, iure asperiores blanditiis maiores dolor assumenda cumque sed alias aliquid, veniam unde atque. Ad veniam impedit harum!
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+	<script>
+		var doc = new jsPDF();
+		$('#cmd').click(function () {
+			doc.fromHTML($('#content').html(), 15, 15, {
+				'width': 170,
+				'elementHandlers': true
+			});
+			doc.save('sample-file.pdf');
+		});
+	</script>
+</body>
+</html>
